@@ -1,4 +1,4 @@
-package org.example;
+package dev.zenith.chat.control;
 
 // The constants are replaced before compilation
 public class BuildConstants {
