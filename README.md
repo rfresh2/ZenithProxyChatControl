@@ -22,7 +22,9 @@ The mod adds an in-game command to send commands through an authenticated web AP
 
 Prefix chats/whispers with `!` to send commands
 
-Example: `!status`
+<img src="https://i.imgur.com/2rCu4Vt.png" alt="Public Chat Command Example">
+
+<img src="https://i.imgur.com/84SKv5s.png" alt="Whisper Command Example">
 
 ### Chat Control Output
 
