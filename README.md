@@ -4,11 +4,15 @@ Lets whitelisted players send commands through whispers or public chat.
 
 ## Warning
 
-Letting in-game players send commands is inherently insecure and unstable. It relies on the server's authentication and chat formatting.
+Letting in-game players send commands is inherently insecure and unstable. 
+
+You are relying on the server's authentication, text formatting, and not being muted
 
 A better option is: [ZenithProxyMod](https://github.com/rfresh2/ZenithProxyMod#web-api-commands) + [ZenithProxyWebAPI](https://github.com/rfresh2/ZenithProxyWebAPI)
 
-The mod adds an in-game command to send commands through an authenticated web API. Example:`/api command myProxy pearlLoader load myFriend`
+The mod adds an in-game command to send commands through the web API 
+
+Mod command example:`/api command myProxy pearlLoader load myFriend`
 
 ## Usage
 
@@ -28,10 +32,8 @@ Prefix chats/whispers with `!` to send commands
 
 ### Chat Control Output
 
-ZenithProxy commands return responses formatted for discord embeds.
+ZenithProxy commands return too much text for whispers
 
-But in-game whispers cannot be formatted with multiple lines or long text.
+So their output is limited to only the response's title
 
-So the output of chat control commands is limited to only the embed's title.
-
-ZenithProxyMod + ZenithProxyWebAPI has full command response formatting if you want a better experience.
+Use ZenithProxyMod + ZenithProxyWebAPI for full command output and formatting
