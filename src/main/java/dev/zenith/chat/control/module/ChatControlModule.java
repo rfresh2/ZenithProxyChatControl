@@ -35,7 +35,7 @@ public class ChatControlModule extends Module {
     private void onWhisper(WhisperChatEvent event) {
         if (!PLUGIN_CONFIG.whispers) return;
         if (event.outgoing()) return;
-        String messageContents = event.message().substring(event.message().indexOf(':') + 1).trim();
+        String messageContents = event.message().trim();
         var sender = event.sender();
         executeCommand(sender, messageContents);
     }
@@ -43,10 +43,7 @@ public class ChatControlModule extends Module {
     private void onPublicChat(PublicChatEvent event) {
         if (!PLUGIN_CONFIG.publicChat) return;
         if (event.sender().getProfileId().equals(CACHE.getProfileCache().getProfile().getId())) return;
-        String messageContents = event.message();
-        if (event.isDefaultMessageSchema()) {
-            messageContents = event.extractMessageDefaultSchema();
-        }
+        String messageContents = event.message().trim();
         executeCommand(event.sender(), messageContents);
     }
 
