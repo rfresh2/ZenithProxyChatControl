@@ -10,7 +10,6 @@ import com.zenith.event.chat.WhisperChatEvent;
 import com.zenith.module.api.Module;
 import com.zenith.util.ChatUtil;
 import org.geysermc.mcprotocollib.protocol.data.game.PlayerListEntry;
-import org.geysermc.mcprotocollib.protocol.packet.ingame.serverbound.ServerboundChatCommandPacket;
 
 import java.util.List;
 
@@ -70,7 +69,7 @@ public class ChatControlModule extends Module {
             response = "Command executed";
         }
         discordAndIngameNotification(commandContext.getEmbed());
-        sendClientPacketAsync(new ServerboundChatCommandPacket("msg " + sender.getName() + " " + response));
+        sendClientPacketAsync(ChatUtil.getWhisperChatPacket(sender.getName(), response));
     }
 
     public static class ChatControlCommandSource implements CommandSource {
@@ -91,7 +90,7 @@ public class ChatControlModule extends Module {
             var senderCtx = ctx.getData().get("ChatControlSender");
             if (senderCtx == null) return;
             if (!(senderCtx instanceof PlayerListEntry sender)) return;
-            Proxy.getInstance().getClient().sendAsync(new ServerboundChatCommandPacket("msg " + sender.getName() + " " + ChatUtil.sanitizeChatMessage(embed.title())));
+            Proxy.getInstance().getClient().sendAsync(ChatUtil.getWhisperChatPacket(sender.getName(), embed.title()));
         }
     }
 }
