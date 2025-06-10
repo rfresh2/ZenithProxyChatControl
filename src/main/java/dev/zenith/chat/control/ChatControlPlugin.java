@@ -13,7 +13,7 @@ import net.kyori.adventure.text.logger.slf4j.ComponentLogger;
     description = "Chat Control",
     url = "https://github.com/rfresh2/ZenithProxyChatControl",
     authors = {"rfresh2"},
-    mcVersions = {"1.21.0"}
+    mcVersions = {"1.21.0", "1.21.4", "1.21.5"}
 )
 public class ChatControlPlugin implements ZenithProxyPlugin {
     public static ChatControlConfig PLUGIN_CONFIG;
