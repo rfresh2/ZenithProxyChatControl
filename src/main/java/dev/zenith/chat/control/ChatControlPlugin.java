@@ -8,7 +8,7 @@ import dev.zenith.chat.control.module.ChatControlModule;
 import net.kyori.adventure.text.logger.slf4j.ComponentLogger;
 
 @Plugin(
-    id = "chat-control",
+    id = BuildConstants.PLUGIN_ID,
     version = BuildConstants.VERSION,
     description = "Chat Control",
     url = "https://github.com/rfresh2/ZenithProxyChatControl",
