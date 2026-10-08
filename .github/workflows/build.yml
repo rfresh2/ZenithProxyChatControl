@@ -1,7 +1,10 @@
-name: Publish Plugin
+name: Plugin Build
 
 on:
-  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - "*"
 
 jobs:
   build:
@@ -36,13 +39,3 @@ jobs:
           path: build/libs/*.jar
           archive: false
           if-no-files-found: error
-
-      - name: Get Plugin Version
-        run: echo "PLUGIN_VERSION=$(grep '^plugin_version=' gradle.properties | cut -d'=' -f2)" >> $GITHUB_ENV
-
-      - name: Publish Plugin Github Release
-        uses: ncipollo/release-action@v1
-        with:
-          tag: ${{ env.PLUGIN_VERSION }}
-          artifacts: build/libs/*.jar
-          generateReleaseNotes: true
